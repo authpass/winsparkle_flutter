@@ -139,6 +139,39 @@ final win_sparkle_set_app_build_version = _winsparkle.lookupFunction<
         win_sparkle_set_app_build_version_dart>(
     'win_sparkle_set_app_build_version');
 
+// /**
+//     Set custom HTTP header for appcast checks.
+//     @since 0.7
+//     @see win_sparkle_clear_http_headers()
+// */
+// WIN_SPARKLE_API void __cdecl win_sparkle_set_http_header(const char *name, const char *value);
+
+typedef win_sparkle_set_http_header_native = Void Function(
+    Pointer<Utf8> name, Pointer<Utf8> value);
+typedef win_sparkle_set_http_header_dart = void Function(
+    Pointer<Utf8> build, Pointer<Utf8> value);
+
+final win_sparkle_set_http_header = _winsparkle.lookupFunction<
+    win_sparkle_set_http_header_native,
+    win_sparkle_set_http_header_dart>('win_sparkle_set_http_header');
+
+// /**
+//     Clears all custom HTTP headers previously added using
+//     win_sparkle_set_http_header().
+//     @since 0.7
+//     @see win_sparkle_set_http_header()
+// */
+// WIN_SPARKLE_API void __cdecl win_sparkle_clear_http_headers();
+
+typedef win_sparkle_clear_http_headers_native = Void Function(
+    Pointer<Utf8> name, Pointer<Utf8> value);
+typedef win_sparkle_clear_http_headers_dart = void Function(
+    Pointer<Utf8> build, Pointer<Utf8> value);
+
+final win_sparkle_clear_http_headers = _winsparkle.lookupFunction<
+    win_sparkle_clear_http_headers_native,
+    win_sparkle_clear_http_headers_dart>('win_sparkle_clear_http_headers');
+
 //     Checks if an update is available, showing progress UI to the user.
 //     Normally, WinSparkle checks for updates on startup and only shows its UI
 //     when it finds an update. If the application disables this behavior, it
