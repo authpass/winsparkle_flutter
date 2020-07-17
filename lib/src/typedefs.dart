@@ -138,3 +138,72 @@ final win_sparkle_set_app_build_version = _winsparkle.lookupFunction<
         win_sparkle_set_app_build_version_native,
         win_sparkle_set_app_build_version_dart>(
     'win_sparkle_set_app_build_version');
+
+//     Checks if an update is available, showing progress UI to the user.
+//     Normally, WinSparkle checks for updates on startup and only shows its UI
+//     when it finds an update. If the application disables this behavior, it
+//     can hook this function to "Check for updates..." menu item.
+//     When called, background thread is started to check for updates. A small
+//     window is shown to let the user know the progress. If no update is found,
+//     the user is told so. If there is an update, the usual "update available"
+//     window is shown.
+//     This function returns immediately.
+//     @note Because this function is intended for manual, user-initiated checks
+//           for updates, it ignores "Skip this version" even if the user checked
+//           it previously.
+//     @see win_sparkle_check_update_without_ui()
+//  */
+// WIN_SPARKLE_API void __cdecl win_sparkle_check_update_with_ui();
+
+typedef win_sparkle_check_update_with_ui_native = Void Function();
+typedef win_sparkle_check_update_with_ui_dart = void Function();
+
+final win_sparkle_check_update_with_ui = _winsparkle.lookupFunction<
+    win_sparkle_check_update_with_ui_native,
+    win_sparkle_check_update_with_ui_dart>('win_sparkle_check_update_with_ui');
+
+// /**
+//     Checks if an update is available, showing progress UI to the user and
+//     immediately installing the update if one is available.
+//     This is useful for the case when users should almost always use the
+//     newest version of your software. When called, WinSparkle will check for
+//     updates showing a progress UI to the user. If an update is found the update
+//     prompt will be skipped and the update will be installed immediately.
+//     If your application expects to do something after checking for updates you
+//     may wish to use win_sparkle_set_did_not_find_update_callback() and
+//     win_sparkle_set_update_cancelled_callback().
+//     @since 0.5
+//     @see win_sparkle_set_did_find_update_callback()
+//     @see win_sparkle_set_update_cancelled_callback()
+//  */
+// WIN_SPARKLE_API void __cdecl win_sparkle_check_update_with_ui_and_install();
+
+typedef win_sparkle_check_update_with_ui_and_install_native = Void Function();
+typedef win_sparkle_check_update_with_ui_and_install_dart = void Function();
+
+final win_sparkle_check_update_with_ui_and_install = _winsparkle.lookupFunction<
+        win_sparkle_check_update_with_ui_and_install_native,
+        win_sparkle_check_update_with_ui_and_install_dart>(
+    'win_sparkle_check_update_with_ui_and_install');
+
+// /**
+//     Checks if an update is available.
+//     No progress UI is shown to the user when checking. If an update is
+//     available, the usual "update available" window is shown; this function
+//     is *not* completely UI-less.
+//     Use with caution, it usually makes more sense to use the automatic update
+//     checks on interval option or manual check with visible UI.
+//     This function returns immediately.
+//     @note This function respects "Skip this version" choice by the user.
+//     @since 0.4
+//     @see win_sparkle_check_update_with_ui()
+//  */
+// WIN_SPARKLE_API void __cdecl win_sparkle_check_update_without_ui();
+
+typedef win_sparkle_check_update_without_ui_native = Void Function();
+typedef win_sparkle_check_update_without_ui_dart = void Function();
+
+final win_sparkle_check_update_without_ui = _winsparkle.lookupFunction<
+        win_sparkle_check_update_without_ui_native,
+        win_sparkle_check_update_without_ui_dart>(
+    'win_sparkle_check_update_without_ui');
