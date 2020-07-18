@@ -99,12 +99,12 @@ final win_sparkle_set_dsa_pub_pem = _winsparkle.lookupFunction<
 //                                                          const wchar_t *app_version);
 
 typedef win_sparkle_set_app_details_native = Void Function(
-  Pointer<Utf8> company_name,
+  Pointer<Utf16> company_name,
   Pointer<Utf16> app_name,
   Pointer<Utf16> app_version,
 );
 typedef win_sparkle_set_app_details_dart = void Function(
-  Pointer<Utf8> company_name,
+  Pointer<Utf16> company_name,
   Pointer<Utf16> app_name,
   Pointer<Utf16> app_version,
 );
